@@ -1,5 +1,8 @@
 html
-{ height: 100%;}
+{ height: 100%;
+  direction: rtl;
+
+}
 
 *
 { margin: 0;
@@ -184,7 +187,9 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   text-decoration: none;} 
 
 #content
-{ text-align: left;
+{ 
+   direction: rtl; 
+  text-align: right;
   float: right;
   width: 595px;
   padding: 0;}

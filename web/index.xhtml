@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>موردين و مشتريات</title>
+        <meta name="description" content="website description" />
+        <meta name="keywords" content="" />
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+    </h:head>
+
+    <h:body>
+        <div id="main">
+            <div id="header">
+                <div id="logo">
+                    <div id="logo_text">
+                        <!-- class="logo_colour", allows you to change the colour of the text -->
+                        <h1><a href="index.html">مجموعات الاصناف<span class="logo_colour"> </span></a></h1>
+                        <h2></h2>
+                    </div>
+                </div>
+
+            </div>
+            <div id="site_content">
+                <div class="sidebar">
+                    
+                        <h:form id="form">
+                            <p:growl id="messages" showDetail="true" />
+                            <p:tree value="#{treeEventsView.root}" var="doc" selectionMode="single" selection="#{treeEventsView.selectedNode}">
+                                <p:ajax event="expand" update=":form:messages" listener="#{treeEventsView.onNodeExpand}" />
+                                <p:ajax event="collapse" update=":form:messages" listener="#{treeEventsView.onNodeCollapse}" />
+                                <p:ajax event="select" update=":form:messages" listener="#{treeEventsView.onNodeSelect}" />
+                                <p:ajax event="unselect" update=":form:messages" listener="#{treeEventsView.onNodeUnselect}" />
+
+                                <p:treeNode expandedIcon="ui-icon-folder-open" collapsedIcon="ui-icon-folder-collapsed">
+                                    <h:outputText value="#{doc.name}"/>
+                                </p:treeNode>
+                                <p:treeNode type="document" icon="ui-icon-document">
+                                    <h:outputText value="#{doc.name}" />
+                                </p:treeNode>
+                                <p:treeNode type="picture" icon="ui-icon-image">
+                                    <h:outputText value="#{doc.name}" />
+                                </p:treeNode>
+                                <p:treeNode type="mp3" icon="ui-icon-video">
+                                    <h:outputText value="#{doc.name}" />
+                                </p:treeNode>
+                            </p:tree>
+                        </h:form> 
+                    
+                </div>
+                <div id="content">
+                    <!-- insert the page content here -->
+                    <p:panelGrid columns="4">
+                        <h:form>
+                            <p:panelGrid columns="4" >
+                                <p:outputLabel for="input" value="اسم المجموعه" style="width:100px"/>
+                                <p:inputText id="input" required="true" style="width:120px"/>
+
+                                <p:outputLabel for="city" value="اختر المجموعه الام: " />
+                                <p:selectOneMenu id="city" value="#{dropdownView.city}" style="width:150px">
+                                    <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true" />
+                                    <f:selectItems value="#{dropdownView.cities}" />
+                                </p:selectOneMenu>
+
+                            </p:panelGrid>
+
+                            <p:commandButton value="حفظ" id="button"  actionListener="#{buttonView.buttonAction}"  />
+                        </h:form>
+                    </p:panelGrid>
+
+
+
+                </div>
+            </div>
+            <div id="footer">
+                جميع الحقوق محفوظه <a href="http://validator.w3.org/check?uri=referer"></a> | <a href="http://jigsaw.w3.org/css-validator/check/referer"></a> | <a href="http://www.html5webtemplates.co.uk"></a>
+            </div>
+        </div>
+    </h:body>
+</html>

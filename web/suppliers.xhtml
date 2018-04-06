@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>موردين و مشتريات</title>
+        <meta name="description" content="website description" />
+        <meta name="keywords" content="" />
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+    </h:head>
+
+    <h:body>
+        <div id="main">
+            <div id="header">
+                <div id="logo">
+                    <div id="logo_text">
+                        <!-- class="logo_colour", allows you to change the colour of the text -->
+                        <h1><a href="index.html">مجموعات الاصناف<span class="logo_colour"> </span></a></h1>
+                        <h2></h2>
+                    </div>
+                </div>
+
+            </div>
+            <div id="site_content">
+
+                <div id="content">
+                    <!-- insert the page content here -->
+                    <p:panelGrid columns="4">
+
+                        <h:form>
+                            <p:panelGrid columns="6" >
+                                <p:outputLabel for="input" value="اسم المورد:" />
+                                <p:inputText id="input" required="true"/>
+
+                                <p:outputLabel for="input2" value="رمزالمورد: " />
+                                <p:inputText id="input2" required="true"/>
+
+
+
+
+                            </p:panelGrid>
+                            <p:panelGrid columns="2" >
+                                <h:outputText value="مورد وعميل" />
+                                <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
+                            </p:panelGrid>
+
+
+                            <p:panelGrid columns="4" >
+                                <p:outputLabel for="city" value="نوع المورد" />
+                                <p:selectOneMenu id="city" value="#{dropdownView.city}" style="width:150px">
+                                    <f:selectItem itemLabel="اختر النوع" itemValue="" noSelectionOption="true" />
+                                    <f:selectItems value="#{dropdownView.cities}" />
+                                </p:selectOneMenu>
+
+                                <p:outputLabel for="city" value="مندوب المشتريات" />
+                                <p:selectOneMenu id="city2" value="#{dropdownView.city}" style="width:150px">
+                                    <f:selectItem itemLabel="اختر المندوب" itemValue="" noSelectionOption="true" />
+                                    <f:selectItems value="#{dropdownView.cities}" />
+                                </p:selectOneMenu>
+
+
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="4" >
+                                <p:outputLabel for="input3" value="التليفون1:" />
+                                <p:inputText id="input3" required="true"/>
+
+                                <p:outputLabel for="input4" value="التليفون2:" />
+                                <p:inputText id="input4" required="true"/>
+
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="4" >
+                                <p:outputLabel for="input5" value="فاكس: " />
+                                <p:inputText id="input5" required="true"/>
+
+                                <p:outputLabel for="input6" value="ايميل: "/>
+                                <p:inputText id="input6" required="true"/>
+
+
+
+
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="4" >
+                                <p:outputLabel for="input7" value="البريد: " />
+                                <p:inputText id="input7" required="true"/>
+
+                                <p:outputLabel for="input6" value="اسم المسئول :"/>
+                                <p:inputText id="input6" required="true"/>
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="4" >
+                                <p:outputLabel for="city" value="رقم الحساب: " />
+                                <p:selectOneMenu id="city3" value="#{dropdownView.city}" style="width:150px">
+                                    <f:selectItem itemLabel="اختر الحساب" itemValue="" noSelectionOption="true" />
+                                    <f:selectItems value="#{dropdownView.cities}" />
+                                </p:selectOneMenu>
+
+                                <p:outputLabel for="city" value="العمله: " />
+                                <p:selectOneMenu id="city4" value="#{dropdownView.city}" style="width:150px">
+                                    <f:selectItem itemLabel="اختر العمله" itemValue="" noSelectionOption="true" />
+                                    <f:selectItems value="#{dropdownView.cities}" />
+                                </p:selectOneMenu>
+
+
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="2" >
+                                <p:outputLabel for="input10" value="حدالائتمان: " />
+                                <p:inputText id="input10" required="true"/>
+
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="4" >
+                                <p:outputLabel for="input11" value="رصيد افتتاح مدين: " />
+                                <p:inputText id="input11" required="true"/>
+
+                                <p:outputLabel for="input12" value="رصيد افتتاح دائن"/>
+                                <p:inputText id="input12" required="true"/>
+                            </p:panelGrid>
+
+
+
+                            <p:commandButton value="حفظ" id="button"  actionListener="#{buttonView.buttonAction}"  />
+                            <p:commandButton value="تعديل" id="button2"  actionListener="#{buttonView.buttonAction}"  />
+
+                        </h:form>
+                    </p:panelGrid>
+
+
+
+                </div>
+            </div>
+            <div id="footer">
+                جميع الحقوق محفوظه <a href="http://validator.w3.org/check?uri=referer"></a> | <a href="http://jigsaw.w3.org/css-validator/check/referer"></a> | <a href="http://www.html5webtemplates.co.uk"></a>
+            </div>
+        </div>
+    </h:body>
+</html>
