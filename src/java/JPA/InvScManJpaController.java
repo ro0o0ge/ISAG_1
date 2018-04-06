@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -27,10 +28,9 @@ import javax.persistence.EntityManagerFactory;
 public class InvScManJpaController implements Serializable {
 
     public InvScManJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+        this.emf = Persistence.createEntityManagerFactory("Isag_2PU");
     }
-    private EntityManagerFactory emf = null;
-
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("Isag_2PU");
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
